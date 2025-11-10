@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+    <meta name="color-scheme" content="light dark" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    -->
+
+    <title>Month duration timer</title>
+
+    <link rel="stylesheet" href="./public/bundle.css" />
+
+    <script src="./public/bundle.js" defer></script>
+</head>
+
+
+
+<body>
+    <header>
+        <div class="wrapper"></div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <section class="time-display">
+                <h2>Current local time</h2>
+                <h1 style="font-size:5rem">
+                    <span class="current-local-time"></span>
+                </h1>
+                <h1 style="font-size:2rem">
+                    <span class="current-local-date"></span>
+                </h1>
+                <h2>
+                    <span class="month-duration-passed-in-percents"></span> of <span class="current-month"></span> has passed
+                </h2>
+                <h2>
+                    <progress class="month-duration-passed-meter month-duration-passed-in-percents"></progress>
+                </h2>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="wrapper"></div>
+    </footer>
+
+    <div class="aside-corner github-link">
+        <a href="#"> <img src="./assets/github-mark/github-mark-white.svg" alt="github-logo" /> </a>
+    </div>
+</body>
+
+</html>
