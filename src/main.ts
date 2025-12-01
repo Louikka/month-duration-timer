@@ -1,7 +1,7 @@
 import './styles/styles.scss';
 
 import {
-    calculateMonthDurationPassed,
+    calculateTimeElapsedInMonth,
     convertFloatToPercents,
     getCurrentDateFormated,
     getCurrentTimeFormated,
@@ -20,39 +20,43 @@ setInterval(() =>
 
 function updateDateTime()
 {
+    const d = new Date();
+
+    const __passed = calculateTimeElapsedInMonth(d);
+
     // set local time
     document.querySelectorAll<HTMLElement>('.current-local-time').forEach((e) =>
     {
-        e.innerText = getCurrentTimeFormated('12-hour');
+        e.innerText = getCurrentTimeFormated(d);
     });
 
 
     // set local date
     document.querySelectorAll<HTMLElement>('.current-local-date').forEach((e) =>
     {
-        e.innerText = getCurrentDateFormated();
+        e.innerText = getCurrentDateFormated(d);
     });
 
     // set current month
     document.querySelectorAll<HTMLElement>('.current-month').forEach((e) =>
     {
-        e.innerText = getCurrentDateFormated({ month : 'long', });
+        e.innerText = getCurrentDateFormated(d, { month : 'long', });
     });
 
 
     // set month duration in percents
     document.querySelectorAll<HTMLElement>('.month-duration-passed-in-percents').forEach((e) =>
     {
-        e.innerText = `${ convertFloatToPercents(calculateMonthDurationPassed(new Date), 1) }%`;
+        e.innerText = `${ convertFloatToPercents(__passed, 1) }%`;
     });
 
     // set month duration in progress/meter elements
     document.querySelectorAll<HTMLProgressElement>('progress.month-duration-passed-meter').forEach((e) =>
     {
-        e.value = calculateMonthDurationPassed(new Date);
+        e.value = __passed;
     });
     document.querySelectorAll<HTMLMeterElement>('meter.month-duration-passed-meter').forEach((e) =>
     {
-        e.value = calculateMonthDurationPassed(new Date);
+        e.value = __passed;
     });
 }
